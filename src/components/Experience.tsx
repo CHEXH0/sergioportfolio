@@ -40,7 +40,7 @@ const experienceItems: ExperienceItem[] = [
     title: "Master of Science in Computer Science",
     company: "University of Technology",
     period: "2014 - 2016",
-    description: "Specialized in human-computer interaction and audio processing, with a thesis on "Adaptive Interfaces for Audio Production Software".",
+    description: "Specialized in human-computer interaction and audio processing, with a thesis on \"Adaptive Interfaces for Audio Production Software\".",
     type: "education",
     tags: ["HCI", "Audio Processing", "Research", "User Testing"],
   },
