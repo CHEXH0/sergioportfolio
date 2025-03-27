@@ -34,9 +34,9 @@ const Navigation = () => {
       className={cn(
         "fixed w-full z-50 transition-all duration-300 ease-in-out",
         scrolled 
-          ? "py-2 backdrop-blur-md bg-white/80 dark:bg-black/80 shadow-sm" 
+          ? "py-1 backdrop-blur-md bg-white/90 dark:bg-black/90 shadow-sm" 
           : isMobile 
-            ? "py-3 bg-white/80 dark:bg-black/80 backdrop-blur-md" 
+            ? "py-2 bg-white/90 dark:bg-black/90 backdrop-blur-md" 
             : "py-6 bg-transparent"
       )}
     >
@@ -79,14 +79,14 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
+              className="inline-flex items-center justify-center p-1 rounded-md hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
               {isOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
+                <X className="block h-5 w-5" aria-hidden="true" />
               ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
+                <Menu className="block h-5 w-5" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -94,8 +94,13 @@ const Navigation = () => {
       </div>
       
       {/* Mobile menu, show/hide based on menu state */}
-      <div className={cn("md:hidden transition-all duration-300 ease-in-out", isOpen ? "opacity-100" : "opacity-0 pointer-events-none")}>
-        <div className="glass px-2 pt-2 pb-3 space-y-1 sm:px-3 mt-2 mx-4 rounded-lg shadow-lg">
+      <div className={cn(
+        "md:hidden transition-all duration-300 ease-in-out",
+        isOpen 
+          ? "max-h-screen opacity-100 pt-2" 
+          : "max-h-0 opacity-0 pointer-events-none overflow-hidden"
+      )}>
+        <div className="glass px-2 pt-2 pb-3 space-y-1 sm:px-3 mt-1 mx-4 rounded-lg shadow-lg">
           {menuItems.map((item) => (
             <ScrollLink
               key={item.name}
