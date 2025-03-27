@@ -185,7 +185,7 @@ const Projects = () => {
                     variant="outline" 
                     size="sm" 
                     className="h-8"
-                    onClick={() => console.log("Demo clicked for", project.title)}
+                    onClick={() => window.open(project.links.demo, '_blank', 'noopener,noreferrer')}
                   >
                     <ExternalLink className="h-3.5 w-3.5 mr-1" />
                     Demo
@@ -196,7 +196,7 @@ const Projects = () => {
                     variant="outline" 
                     size="sm" 
                     className="h-8"
-                    onClick={() => console.log("GitHub clicked for", project.title)}
+                    onClick={() => window.open(project.links.github, '_blank', 'noopener,noreferrer')}
                   >
                     <Github className="h-3.5 w-3.5 mr-1" />
                     Code
@@ -207,7 +207,7 @@ const Projects = () => {
                     variant="ghost" 
                     size="sm" 
                     className="h-8 ml-auto text-primary hover:text-primary"
-                    onClick={() => console.log("Case study clicked for", project.title)}
+                    onClick={() => window.open(project.links.caseStudy, '_blank', 'noopener,noreferrer')}
                   >
                     Case Study
                     <ArrowRight className="h-3.5 w-3.5 ml-1" />
