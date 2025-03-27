@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { projects } from "@/data/projects";
 
 interface Process {
   title: string;
@@ -21,66 +22,98 @@ interface CaseStudy {
   processes: Process[];
 }
 
+// Using the featured projects from the projects data
 const caseStudies: CaseStudy[] = [
   {
-    id: "harmonic-visualizer",
-    title: "Harmonic Visualizer",
-    subtitle: "Audio Visualization Tool",
-    overview: "The Harmonic Visualizer was conceived as a tool to help music students understand the relationship between sound and visual representation. It started as a personal project to explore the Web Audio API and evolved into a comprehensive learning tool.",
-    challenge: "Creating an intuitive interface that could accurately represent complex audio data while remaining accessible to users without technical audio knowledge. Performance optimization was also crucial for maintaining smooth animations at high frame rates.",
-    solution: "I developed a modular architecture that separated audio analysis from visual rendering, allowing for efficient updates and customization. The user interface was designed with progressive disclosure, presenting basic functionality upfront while allowing advanced users to access more complex features.",
-    outcome: "The tool is now used in several music education programs and has received positive feedback for making audio concepts more tangible and understandable. The project has also been open-sourced, allowing for community contributions and improvements.",
+    id: "chexho-vsti",
+    title: "Chexho VSTi Synth",
+    subtitle: "DSP-based VSTi synthesizer",
+    overview: "Developed a professional-grade VSTi synthesizer compatible with all DAWs and platforms. Focused on creating an intuitive interface while maintaining complex sound design capabilities.",
+    challenge: "Creating a VST instrument that balances powerful sound design features with an intuitive user interface. Additionally, ensuring cross-platform compatibility across different DAWs posed significant technical challenges.",
+    solution: "Implemented a clean, modern UI design using JUCE framework while working with HISE for the audio engine. Created a modular architecture that separates the audio processing from the interface, allowing for optimized performance.",
+    outcome: "The synthesizer has been successfully deployed and is now available for music producers. It provides a streamlined workflow while maintaining professional sound quality and features expected in high-end synthesizers.",
     processes: [
       {
-        title: "User Research",
-        description: "Conducted interviews with music educators and students to understand their needs and pain points when teaching and learning audio concepts.",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+        title: "DSP Development",
+        description: "Designed and implemented the digital signal processing modules for oscillators, filters, and modulators.",
+        image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
       },
       {
-        title: "Prototyping",
-        description: "Created multiple interactive prototypes to test different visualization approaches and user interface designs.",
+        title: "UI/UX Design",
+        description: "Created an intuitive interface design that allows quick access to sound design parameters without overwhelming users.",
         image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
       },
       {
-        title: "Development",
-        description: "Implemented the core functionality using Web Audio API for sound analysis and Canvas API for visualization, with React for the UI components.",
+        title: "Cross-Platform Testing",
+        description: "Conducted extensive testing across multiple DAWs and operating systems to ensure compatibility and performance.",
         image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80",
       },
       {
-        title: "Testing & Refinement",
-        description: "Conducted usability testing with different user groups and refined the interface based on feedback, focusing on performance optimization and accessibility.",
+        title: "Deployment",
+        description: "Packaged and distributed the final product with comprehensive documentation and preset libraries.",
         image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80",
       },
     ],
   },
   {
-    id: "adaptive-interface",
-    title: "Adaptive Interface System",
-    subtitle: "UI/UX Design System for Audio Software",
-    overview: "The Adaptive Interface System was created to address inconsistencies in UI patterns across different audio software, aiming to create a cohesive, accessible design system that could adapt to different user skill levels.",
-    challenge: "Audio software interfaces often prioritize functionality over usability, creating steep learning curves for new users while still needing to satisfy power users. Creating a system that could scale across different applications while maintaining consistency was complex.",
-    solution: "I developed a component library with built-in adaptivity that could present simplified interfaces to beginners and more comprehensive controls to advanced users. The system includes intelligent defaults with progressive disclosure of complex features.",
-    outcome: "The design system has been adopted by several small audio software companies, reducing their development time and improving user satisfaction scores. The project has been documented as a case study for adaptive interfaces in specialized software.",
+    id: "audio-processor",
+    title: "Audio Processor",
+    subtitle: "Web-based Audio Processing Tool",
+    overview: "Developed a comprehensive web-based audio processing tool that provides music producers with quick access to essential tools like EQ and compression, along with real-time recording capabilities.",
+    challenge: "Building a responsive, low-latency audio processing application for the web while maintaining professional-grade sound quality. Additionally, creating an accessible interface that works across different devices was a significant challenge.",
+    solution: "Leveraged the Web Audio API for processing and implemented a custom design system that ensures accessibility and responsive design. Created a modular architecture that allows features to be added without disrupting existing functionality.",
+    outcome: "The Audio Processor is now being used by producers for quick editing and processing tasks, providing a seamless experience across devices without requiring local software installation.",
     processes: [
       {
-        title: "Interface Audit",
-        description: "Analyzed existing audio software interfaces to identify common patterns, pain points, and opportunities for improvement.",
+        title: "Requirements Analysis",
+        description: "Identified essential audio processing features through research and feedback from music producers.",
         image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
       },
       {
-        title: "User Persona Development",
-        description: "Created detailed personas representing different user types, from beginners to professional audio engineers, to guide the adaptive design approach.",
+        title: "Interface Prototyping",
+        description: "Created interactive prototypes to test the usability of the processing controls and workflow.",
         image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
       },
       {
-        title: "Component Design",
-        description: "Designed a comprehensive library of UI components specifically optimized for audio software, with attention to precision, readability, and tactile feedback.",
-        image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+        title: "Audio Engine Development",
+        description: "Built a custom audio processing engine for the web that handles EQ, compression, and recording with minimal latency.",
+        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
       },
       {
-        title: "Documentation & Implementation",
-        description: "Created extensive documentation for developers and implemented example applications showcasing the system's capabilities.",
+        title: "Responsive Implementation",
+        description: "Implemented a fully responsive design that works seamlessly across desktop and mobile devices.",
+        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+      },
+    ],
+  },
+  {
+    id: "english-courses",
+    title: "English Courses - All About Me",
+    subtitle: "Interactive Learning Platform",
+    overview: "Created a web-based English learning community where users can improve their language skills through interactive lessons, exercises, and a supportive bilingual environment.",
+    challenge: "Designing an engaging learning platform that caters to different skill levels while providing personalized learning experiences. Additionally, incorporating machine learning for adaptive learning paths presented technical challenges.",
+    solution: "Developed a bilingual interface with progressive disclosure of complexity based on user skill levels. Integrated machine learning algorithms to analyze user performance and suggest appropriate learning materials.",
+    outcome: "The platform has successfully attracted a community of English learners, providing them with a structured yet flexible approach to language acquisition through personalized learning paths.",
+    processes: [
+      {
+        title: "Curriculum Design",
+        description: "Developed a comprehensive curriculum structure with clear progression paths for different skill levels.",
         image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+      },
+      {
+        title: "UX Research",
+        description: "Conducted user research to understand the needs and pain points of language learners at different proficiency levels.",
+        image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+      },
+      {
+        title: "Interactive Features",
+        description: "Designed and implemented interactive exercises, quizzes, and conversation simulations to enhance engagement.",
+        image: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+      },
+      {
+        title: "Community Building",
+        description: "Created features that foster community interaction and support among learners, including forums and peer review systems.",
+        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80",
       },
     ],
   },
@@ -103,7 +136,7 @@ const CaseStudies = () => {
           onValueChange={setActiveStudy}
           className="w-full"
         >
-          <TabsList className="grid w-full grid-cols-2 mb-8">
+          <TabsList className="grid w-full grid-cols-3 mb-8">
             {caseStudies.map((study) => (
               <TabsTrigger
                 key={study.id}
