@@ -180,12 +180,12 @@ const Contact = () => {
                   <h4 className="text-lg font-semibold mb-1">LinkedIn</h4>
                   <p className="text-muted-foreground mb-4">Let's connect</p>
                   <a 
-                    href="https://linkedin.com/in/yourprofile" 
+                    href="https://linkedin.com/in/sergio-ramirez-80808826a" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-primary hover:underline flex items-center"
                   >
-                    linkedin.com/in/yourprofile
+                    linkedin.com/in/sergio-ramirez
                     <ExternalLink className="ml-1 h-3 w-3" />
                   </a>
                 </CardContent>
@@ -199,12 +199,12 @@ const Contact = () => {
                   <h4 className="text-lg font-semibold mb-1">GitHub</h4>
                   <p className="text-muted-foreground mb-4">Check my code</p>
                   <a 
-                    href="https://github.com/yourusername" 
+                    href="https://github.com/CHEXH0" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-primary hover:underline flex items-center"
                   >
-                    github.com/yourusername
+                    github.com/CHEXH0
                     <ExternalLink className="ml-1 h-3 w-3" />
                   </a>
                 </CardContent>
@@ -215,15 +215,15 @@ const Contact = () => {
                   <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <ExternalLink className="h-6 w-6 text-primary" />
                   </div>
-                  <h4 className="text-lg font-semibold mb-1">Personal Website</h4>
+                  <h4 className="text-lg font-semibold mb-1">My Music Studio</h4>
                   <p className="text-muted-foreground mb-4">More about me</p>
                   <a 
-                    href="https://yourwebsite.com" 
+                    href="https://hechoenamerica.lovable.app/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-primary hover:underline flex items-center"
                   >
-                    yourwebsite.com
+                    hechoenamericastudio.com
                     <ExternalLink className="ml-1 h-3 w-3" />
                   </a>
                 </CardContent>

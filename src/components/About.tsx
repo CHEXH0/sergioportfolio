@@ -3,14 +3,14 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { FileDown } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import sampleResume from "@/assets/sample-resume.pdf";
+import sampleResume from "@/assets/Resume-2025.pdf";
 
 const About = () => {
   const handleDownloadResume = () => {
     // Create an anchor element and trigger download
     const link = document.createElement("a");
     link.href = sampleResume;
-    link.download = "developer-resume.pdf";
+    link.download = "Sergio's-resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

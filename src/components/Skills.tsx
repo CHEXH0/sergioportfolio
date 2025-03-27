@@ -25,8 +25,8 @@ const skillCategories: SkillCategory[] = [
     name: "UI/UX Tools",
     items: [
       { name: "Figma", level: "advanced" },
-      { name: "Adobe XD", level: "intermediate" },
-      { name: "Sketch", level: "intermediate" },
+      { name: "Adobe Photoshop", level: "intermediate" },
+      { name: "Sketch Pro", level: "intermediate" },
       { name: "Prototyping", level: "advanced" },
       { name: "User Research", level: "intermediate" },
     ],
@@ -58,7 +58,7 @@ const skillCategories: SkillCategory[] = [
       { name: "GitHub", level: "advanced" },
       { name: "VS Code", level: "expert" },
       { name: "Webpack", level: "intermediate" },
-      { name: "Docker", level: "intermediate" },
+      { name: "SupaBase", level: "intermediate" },
     ],
   },
   {

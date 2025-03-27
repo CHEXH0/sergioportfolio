@@ -26,23 +26,8 @@ const Footer = () => {
             </p>
           </div>
           
-          <div className="flex justify-center space-x-6 mb-8">
-            <a href="#" className="text-muted-foreground hover:text-foreground">
-              GitHub
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground">
-              LinkedIn
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground">
-              Twitter
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground">
-              Email
-            </a>
-          </div>
-          
           <div className="text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Sergio Ramirez. All rights reserved.</p>
           </div>
         </div>
       </div>
