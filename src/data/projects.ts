@@ -32,7 +32,6 @@ export const projects: ProjectProps[] = [
     role: "Lead Developer & UI Designer",
     links: {
       demo: "https://drive.google.com/file/d/14D73K9wcTIuUnnHW5tjaviSRHyy0Od6I/view?usp=sharing",
-      github: "#",
     },
     featured: true,
   },
