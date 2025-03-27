@@ -3,10 +3,12 @@ import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +33,11 @@ const Navigation = () => {
     <nav
       className={cn(
         "fixed w-full z-50 transition-all duration-300 ease-in-out",
-        scrolled ? "py-3 backdrop-blur-md bg-white/80 dark:bg-black/80 shadow-sm" : "py-6 bg-transparent"
+        scrolled 
+          ? "py-2 backdrop-blur-md bg-white/80 dark:bg-black/80 shadow-sm" 
+          : isMobile 
+            ? "py-3 bg-white/80 dark:bg-black/80 backdrop-blur-md" 
+            : "py-6 bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
