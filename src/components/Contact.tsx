@@ -1,17 +1,73 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { useForm } from "react-hook-form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // This would typically connect to a form submission API
-    toast.success("Message sent successfully! I'll get back to you soon.");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = async (data: ContactFormValues) => {
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message");
+      }
+
+      toast.success("Message sent successfully! I'll get back to you soon.");
+      form.reset();
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -25,53 +81,81 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="animate-slide-in-left">
             <h3 className="text-2xl font-bold mb-6">Contact Me</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    Name
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="Your name"
-                    required
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="Your email" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="Your email"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="subject" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                  Subject
-                </label>
-                <Input
-                  id="subject"
-                  placeholder="What is this regarding?"
-                  required
+                
+                <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Subject</FormLabel>
+                      <FormControl>
+                        <Input placeholder="What is this regarding?" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  placeholder="Your message"
-                  rows={5}
-                  required
+                
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Textarea placeholder="Your message" rows={5} {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
-              <Button type="submit" className="w-full">Send Message</Button>
-            </form>
+                
+                <Button 
+                  type="submit" 
+                  className="w-full" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
+                </Button>
+              </form>
+            </Form>
           </div>
           
           <div className="animate-slide-in-right">
@@ -85,10 +169,10 @@ const Contact = () => {
                   <h4 className="text-lg font-semibold mb-1">Email</h4>
                   <p className="text-muted-foreground mb-4">Let's get in touch</p>
                   <a 
-                    href="mailto:example@yourdomain.com" 
+                    href="mailto:sergio.ramrz21@gmail.com" 
                     className="text-primary hover:underline flex items-center"
                   >
-                    example@yourdomain.com
+                    sergio.ramrz21@gmail.com
                   </a>
                 </CardContent>
               </Card>
