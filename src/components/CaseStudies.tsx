@@ -22,7 +22,7 @@ interface CaseStudy {
   processes: Process[];
 }
 
-// Using the featured projects from the projects data
+// Using only the first two case studies (removing the English Courses one)
 const caseStudies: CaseStudy[] = [
   {
     id: "chexho-vsti",
@@ -86,37 +86,6 @@ const caseStudies: CaseStudy[] = [
       },
     ],
   },
-  {
-    id: "english-courses",
-    title: "English Courses - All About Me",
-    subtitle: "Interactive Learning Platform",
-    overview: "Created a web-based English learning community where users can improve their language skills through interactive lessons, exercises, and a supportive bilingual environment.",
-    challenge: "Designing an engaging learning platform that caters to different skill levels while providing personalized learning experiences. Additionally, incorporating machine learning for adaptive learning paths presented technical challenges.",
-    solution: "Developed a bilingual interface with progressive disclosure of complexity based on user skill levels. Integrated machine learning algorithms to analyze user performance and suggest appropriate learning materials.",
-    outcome: "The platform has successfully attracted a community of English learners, providing them with a structured yet flexible approach to language acquisition through personalized learning paths.",
-    processes: [
-      {
-        title: "Curriculum Design",
-        description: "Developed a comprehensive curriculum structure with clear progression paths for different skill levels.",
-        image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-      },
-      {
-        title: "UX Research",
-        description: "Conducted user research to understand the needs and pain points of language learners at different proficiency levels.",
-        image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-      },
-      {
-        title: "Interactive Features",
-        description: "Designed and implemented interactive exercises, quizzes, and conversation simulations to enhance engagement.",
-        image: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-      },
-      {
-        title: "Community Building",
-        description: "Created features that foster community interaction and support among learners, including forums and peer review systems.",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80",
-      },
-    ],
-  },
 ];
 
 const CaseStudies = () => {
@@ -136,7 +105,7 @@ const CaseStudies = () => {
           onValueChange={setActiveStudy}
           className="w-full"
         >
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid w-full grid-cols-2 mb-8">
             {caseStudies.map((study) => (
               <TabsTrigger
                 key={study.id}
