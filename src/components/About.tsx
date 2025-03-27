@@ -51,12 +51,12 @@ const About = () => {
             <div className="relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 shadow-xl flex items-center justify-center">
               <Avatar className="w-4/5 h-4/5">
                 <AvatarImage 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
+                  src="/Profile.jpg" 
                   alt="Profile photo" 
                   className="object-cover"
                 />
                 <AvatarFallback className="text-xl">
-                  JD
+                  SR
                 </AvatarFallback>
               </Avatar>
             </div>

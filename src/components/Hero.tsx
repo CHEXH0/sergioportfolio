@@ -11,7 +11,7 @@ const Hero = () => {
       </div>
       <div className="section-container z-10">
         <div className="max-w-4xl mx-auto text-center animate-blur-in">
-          <div className="pill mb-6">Software Engineer</div>
+          <div className="pill mb-6">Sergio Alejandro Ramirez</div>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">
             UI/UX Design & Audio Software Engineering
           </h1>

@@ -17,7 +17,7 @@ const skillCategories: SkillCategory[] = [
       { name: "JavaScript", level: "expert" },
       { name: "TypeScript", level: "advanced" },
       { name: "Python", level: "advanced" },
-      { name: "C++", level: "intermediate" },
+      { name: "GoLang", level: "intermediate" },
       { name: "HTML/CSS", level: "expert" },
     ],
   },
@@ -34,8 +34,8 @@ const skillCategories: SkillCategory[] = [
   {
     name: "Audio Engineering",
     items: [
-      { name: "Pure Data", level: "advanced" },
-      { name: "SuperCollider", level: "intermediate" },
+      { name: "HISE", level: "advanced" },
+      { name: "JUCE", level: "intermediate" },
       { name: "Max/MSP", level: "advanced" },
       { name: "Web Audio API", level: "expert" },
       { name: "DSP", level: "intermediate" },
@@ -65,9 +65,9 @@ const skillCategories: SkillCategory[] = [
     name: "Professional Skills",
     items: [
       { name: "Project Management", level: "advanced" },
-      { name: "Agile/Scrum", level: "advanced" },
+      { name: "Trend-Savvy", level: "advanced" },
       { name: "Technical Writing", level: "intermediate" },
-      { name: "Mentorship", level: "intermediate" },
+      { name: "Leadership", level: "intermediate" },
       { name: "Public Speaking", level: "intermediate" },
     ],
   },
