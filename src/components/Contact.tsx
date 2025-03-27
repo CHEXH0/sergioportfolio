@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -45,21 +44,17 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-        },
-        body: JSON.stringify(data),
+      console.log("Sending contact form data:", data);
+      
+      const { data: functionData, error } = await supabase.functions.invoke('send-contact-email', {
+        body: data,
       });
 
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || "Failed to send message");
+      if (error) {
+        throw new Error(error.message || "Failed to send message");
       }
 
+      console.log("Response from function:", functionData);
       toast.success("Message sent successfully! I'll get back to you soon.");
       form.reset();
     } catch (error) {

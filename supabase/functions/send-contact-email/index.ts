@@ -21,13 +21,35 @@ interface ContactFormData {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  console.log("Received request to send-contact-email function");
+  
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { name, email, subject, message }: ContactFormData = await req.json();
+    const body = await req.text();
+    console.log("Request body (raw):", body);
+    
+    let formData: ContactFormData;
+    try {
+      formData = JSON.parse(body);
+    } catch (parseError) {
+      console.error("Error parsing JSON:", parseError);
+      return new Response(
+        JSON.stringify({ 
+          error: "Invalid JSON in request body" 
+        }),
+        { 
+          status: 400, 
+          headers: { ...corsHeaders, "Content-Type": "application/json" } 
+        }
+      );
+    }
+    
+    const { name, email, subject, message } = formData;
+    console.log("Parsed form data:", { name, email, subject, message });
 
     // Validate input
     if (!name || !email || !subject || !message) {
