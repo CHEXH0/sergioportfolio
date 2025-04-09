@@ -97,7 +97,7 @@ export const projects: ProjectProps[] = [
     ],
     role: "Hardware & Software Developer",
     links: {
-      demo: "https://hechoenamerica.lovable.app/",
+      demo: "https://hechoenamericastudio.com/",
       github: "https://github.com/CHEXH0/hechoenamerica",
     },
   },

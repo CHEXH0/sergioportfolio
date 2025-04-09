@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -218,7 +219,7 @@ const Contact = () => {
                   <h4 className="text-lg font-semibold mb-1">My Music Studio</h4>
                   <p className="text-muted-foreground mb-4">More about me</p>
                   <a 
-                    href="https://hechoenamerica.lovable.app/" 
+                    href="https://hechoenamericastudio.com/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-primary hover:underline flex items-center"
