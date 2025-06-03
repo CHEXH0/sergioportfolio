@@ -10,7 +10,7 @@ const About = () => {
     // Create an anchor element and trigger download
     const link = document.createElement("a");
     link.href = sampleResume;
-    link.download = "Sergio's-resume.pdf";
+    link.download = "Sergio's_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
