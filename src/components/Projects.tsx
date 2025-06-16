@@ -6,7 +6,8 @@ import { projects } from "@/data/projects";
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
-  const displayedProjects = showAll ? projects : projects.filter(project => project.featured);
+  const featuredProjects = projects.filter(project => project.featured);
+  const displayedProjects = showAll ? projects : featuredProjects.slice(0, 3);
 
   return (
     <section id="projects">
