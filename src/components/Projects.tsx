@@ -13,7 +13,7 @@ const Projects = () => {
       <div className="section-container">
         <h2 className="section-title">Project Showcase</h2>
         <p className="section-subtitle">
-          A selection of projects demonstrating my experience in UI/UX design and audio software engineering.
+          A selection of projects demonstrating my experience in audio software engineering.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

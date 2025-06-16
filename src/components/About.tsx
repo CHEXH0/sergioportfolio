@@ -28,13 +28,13 @@ const About = () => {
           <div className="space-y-6 animate-slide-in-left">
             <h3 className="text-2xl font-bold mb-4">Personal Statement</h3>
             <p className="text-lg">
-              As a software engineer focused on UI/UX design and audio software engineering, I combine technical expertise with a deep appreciation for how users interact with technology. My background in both visual and auditory design gives me a unique perspective on creating intuitive, engaging experiences.
+              As a software engineer focused on audio software engineering, I combine technical expertise with a deep appreciation for how users interact with technology. My background in both visual and auditory design gives me a unique perspective on creating intuitive, engaging experiences.
             </p>
             <p className="text-lg">
-              I'm driven by the challenge of making complex systems accessible and enjoyable to use. Whether designing interfaces for audio applications or creating visualizations of sound, I'm passionate about the intersection of technology and human experience.
+              I'm driven by the challenge of making complex systems accessible and enjoyable to use. Whether designing interfaces for audio applications or creating visualizations of sound, I'm passionate about the intersection of technology and the human experience.
             </p>
             <p className="text-lg">
-              My goal is to continue pushing the boundaries of what's possible in audio software and UI/UX design, creating tools that empower others to express their creativity and achieve their goals efficiently.
+              My goal is to continue pushing the boundaries of what's possible in audio software, creating tools that empower others to express their creativity and achieve their goals efficiently.
             </p>
             
             <div className="pt-4">

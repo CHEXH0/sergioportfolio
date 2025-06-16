@@ -80,7 +80,7 @@ const Experience = () => {
       <div className="section-container">
         <h2 className="section-title">Professional Experience</h2>
         <p className="section-subtitle">
-          My journey in software engineering, UI/UX design, and audio technology.
+          My journey in software engineering and audio technology.
         </p>
         
         <div className="space-y-12">
