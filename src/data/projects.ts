@@ -1,4 +1,3 @@
-
 export interface Tag {
   name: string;
   color?: string;
@@ -67,7 +66,7 @@ export const projects: ProjectProps[] = [
       demo: "https://hechoenamericastudio.com/",
       github: "https://github.com/CHEXH0/hechoenamerica",
     },
-    
+    featured: true,
   },
   {
     title: "NATIVO Holistico",
