@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center animate-blur-in">
           <div className="pill mb-6">Sergio Alejandro Ramirez</div>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">
-            Audio Software Engineering
+            Audio Software Engineer
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto">
             Crafting innovative software experiences at the intersection of visual design and audio technology.
