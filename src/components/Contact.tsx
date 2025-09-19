@@ -60,7 +60,23 @@ const Contact = () => {
       form.reset();
     } catch (error) {
       console.error("Error sending message:", error);
-      toast.error("Failed to send message. Please try again.");
+      
+      // Fallback: Open mailto with the form data
+      const subject = encodeURIComponent(data.subject);
+      const body = encodeURIComponent(
+        `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
+      );
+      const mailtoUrl = `mailto:sergio.ramrz21@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Try to open mailto
+      try {
+        window.open(mailtoUrl, '_blank');
+        toast.success("Opening your email client to send the message. Please send when ready!");
+        form.reset();
+      } catch (mailtoError) {
+        // If mailto fails, show alternative contact info
+        toast.error("Please contact me directly at sergio.ramrz21@gmail.com");
+      }
     } finally {
       setIsSubmitting(false);
     }
