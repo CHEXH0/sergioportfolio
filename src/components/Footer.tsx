@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="text-center max-w-md mb-8">
             <h3 className="text-xl font-bold mb-2">Software Engineer</h3>
             <p className="text-sm text-muted-foreground">
-              Specializing in UI/UX Design & Audio Software Engineering
+              Specializing in Audio Software Engineering
             </p>
           </div>
           
